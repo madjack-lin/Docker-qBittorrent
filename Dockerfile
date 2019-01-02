@@ -4,21 +4,21 @@ RUN buildDeps='build-essential pkg-config automake libtool git wget libboost-dev
     apt-get update && \
     apt-get install geoip-database $buildDeps -y && \
 
-    # Build libtorrent 1.0.11
-    wget https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_0_11/libtorrent-rasterbar-1.0.11.tar.gz && \   
-    tar xzvf libtorrent-rasterbar-1.0.11.tar.gz && \
-    cd libtorrent-rasterbar-1.0.11 && \
+    # Build libtorrent 1.1.7
+    wget https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_1_7/libtorrent-rasterbar-1.1.7.tar.gz && \   
+    tar xzvf libtorrent-rasterbar-1.1.7.tar.gz && \
+    cd libtorrent-rasterbar-1.1.7 && \
     ./configure --prefix=/usr --disable-debug --enable-encryption --with-libgeoip=system CXXFLAGS=-std=c++11 && \
     make clean && \
     make -j$(nproc) && \
     make install && \
     cd .. && \
 
-    # Download qBittorrent 4.0.4
+    # Download qBittorrent 4.1.0
     ldconfig && \
-    wget https://github.com/qbittorrent/qBittorrent/archive/release-4.0.4.tar.gz && \
-    tar -xzvf release-4.0.4.tar.gz && \
-    cd qBittorrent-release-4.0.4/ && \
+    wget https://github.com/qbittorrent/qBittorrent/archive/release-4.1.0.tar.gz && \
+    tar -xzvf release-4.1.0.tar.gz && \
+    cd qBittorrent-release-4.1.0/ && \
     ./configure --prefix=/usr --disable-gui && \
     make -j$(nproc) && \
     make install && \
@@ -28,8 +28,8 @@ RUN buildDeps='build-essential pkg-config automake libtool git wget libboost-dev
     apt-get purge -y $buildDeps && \
     rm -rf /var/lib/apt/lists/* && \
     rm -rf *.gz && \
-    rm -rf /libtorrent-rasterbar-1.0.11 && \
-    rm -rf /qBittorrent-release-4.0.4
+    rm -rf /libtorrent-rasterbar-1.1.7 && \
+    rm -rf /qBittorrent-release-4.1.0
 
     # Add Config File
 COPY qBittorrent.conf /root/.config/qBittorrent/
