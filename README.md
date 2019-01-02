@@ -20,10 +20,10 @@ qBittorrent-3.3.11 (libtorrent-1.0.11)
 `madjack/qbittorrent`
 
 ## **for Synology DSM：**
-*設定Synoogy Nas本機資料夾對應到容器的資料夾 /downloads*
-*Port 56789 / TCP (Webui Port，Nas本機Port與容器Port需設定同為56789才能順利開啟WebUI)*
-*54321 / TCP (Connect Port)*
-*54321 / UDP (Connect Port)*
+* 設定Synoogy Nas本機資料夾對應到容器的資料夾 /downloads
+* Port 56789 / TCP (Webui Port，Nas本機Port與容器Port需設定同為56789才能順利開啟WebUI)
+* 54321 / TCP (Connect Port)
+* 54321 / UDP (Connect Port)
 
 The WebUI running on **<http://localhost:56789/>**
 
