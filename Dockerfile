@@ -1,7 +1,7 @@
 From centos:7.6.1810
     # buildDeps config
 RUN buildDeps='install qt-devel boost-devel openssl-devel qt5-qtbase-devel qt5-linguist' && \
-    yum update && \
+    yum -y update && \
     yum -y groupinstall "Development Tools" && \
     yum -y install centos-release-scl-rh devtoolset-3-gcc devtoolset-3-gcc-c++ $buildDeps && \
     source scl_source enable devtoolset-3 && \
