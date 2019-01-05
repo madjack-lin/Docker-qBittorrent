@@ -1,9 +1,10 @@
 From centos:7.6.1810
     # buildDeps config
-RUN buildDeps='install qt-devel boost-devel openssl-devel qt5-qtbase-devel qt5-linguist' && \
+RUN buildDeps='wget qt-devel boost-devel openssl-devel qt5-qtbase-devel qt5-linguist' && \
     yum -y update && \
     yum -y groupinstall "Development Tools" && \
-    yum -y install centos-release-scl-rh devtoolset-3-gcc devtoolset-3-gcc-c++ $buildDeps && \
+    yum -y install $buildDeps && \
+    yum -y install centos-release-scl-rh devtoolset-3-gcc devtoolset-3-gcc-c++ && \
     source scl_source enable devtoolset-3 && \
     # Build libtorrent 1.1.11
     wget https://github.com/arvidn/libtorrent/releases/download/libtorrent_1_1_11/libtorrent-rasterbar-1.1.11.tar.gz && \    tar xzvf libtorrent-rasterbar-1.1.11.tar.gz && \
@@ -25,9 +26,9 @@ RUN buildDeps='install qt-devel boost-devel openssl-devel qt5-qtbase-devel qt5-l
     make install && \
     cd .. && \
     # Clean up & mkdir folder
-    rm -rf -y *.gz && \
-    rm -rf -y /libtorrent-rasterbar-1.1.11 && \
-    rm -rf -y /qBittorrent-release-4.1.5
+    rm -f *.gz && \
+    rm -rf /libtorrent-rasterbar-1.1.11 && \
+    rm -rf /qBittorrent-release-4.1.5
     # Add Config File
 COPY qBittorrent.conf /root/.config/qBittorrent/
 VOLUME ["/downloads"]
