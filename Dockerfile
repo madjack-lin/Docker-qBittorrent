@@ -1,36 +1,30 @@
-From centos:7.6.1810
+From ubuntu:16.04
     # buildDeps config
-RUN buildtoolset='centos-release-scl-rh devtoolset-3-gcc devtoolset-3-gcc-c++' &&\
-    buildDeps='wget qt-devel boost-devel openssl-devel qt5-qtbase-devel qt5-linguist' && \
-    buildtools='Development Tools' && \
-    yum -y install $buildtoolset && \
-    source scl_source enable devtoolset-3 && \
-    yum -y update && \
-    yum -y groupinstall $buildtools && \
-    yum -y install $buildDeps && \
-    yum clean all && \
+RUN buildDeps='build-essential pkg-config automake libtool git wget libboost-dev libboost-system-dev libboost-chrono-dev libboost-random-dev libssl-dev libgeoip-dev qtbase5-dev qttools5-dev-tools libqt5svg5-dev python' && \
+    apt-get update && \
+    apt-get install geoip-database $buildDeps -y && \
     # Build libtorrent 1.1.11
-    wget https://github.com/arvidn/libtorrent/releases/download/libtorrent_1_1_11/libtorrent-rasterbar-1.1.11.tar.gz && \   
+    wget https://github.com/arvidn/libtorrent/releases/download/libtorrent_1_1_11/libtorrent-rasterbar-1.1.11.tar.gz && \
     tar xzvf libtorrent-rasterbar-1.1.11.tar.gz && \
     cd libtorrent-rasterbar-1.1.11 && \
-    ./configure --prefix=/usr CXXFLAGS=-std=c++11 && \
+    ./configure --prefix=/usr --disable-debug --enable-encryption --with-libgeoip=system CXXFLAGS=-std=c++11 && \
     make clean && \
     make -j$(nproc) && \
     make install && \
-    ln -s /usr/lib/pkgconfig/libtorrent-rasterbar.pc /usr/lib64/pkgconfig/libtorrent-rasterbar.pc && \
-    ln -s /usr/lib/libtorrent-rasterbar.so.9 /usr/lib64/libtorrent-rasterbar.so.9 && \
     cd .. && \
     # Download qBittorrent 4.1.5
     ldconfig && \
     wget https://github.com/qbittorrent/qBittorrent/archive/release-4.1.5.tar.gz && \
     tar -xzvf release-4.1.5.tar.gz && \
     cd qBittorrent-release-4.1.5/ && \
-    ./configure --prefix=/usr --disable-gui CPPFLAGS=-I/usr/include/qt5 && \
+    ./configure --prefix=/usr --disable-gui && \
     make -j$(nproc) && \
     make install && \
     cd .. && \
     # Clean up & mkdir folder
-    rm -f *.gz && \
+    apt-get purge -y $buildDeps && \
+    rm -rf /var/lib/apt/lists/* && \
+    rm -rf *.gz && \
     rm -rf /libtorrent-rasterbar-1.1.11 && \
     rm -rf /qBittorrent-release-4.1.5
     # Add Config File
