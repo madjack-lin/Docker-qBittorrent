@@ -6,7 +6,7 @@ RUN buildDeps='build-essential pkg-config automake libtool git wget libboost-dev
     # Build libtorrent 1.1.13
     wget https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_1_13/libtorrent-rasterbar-1.1.13.tar.gz && \
     tar xzvf libtorrent-rasterbar-1.1.13.tar.gz && \
-    cd libtorrent-rasterbar-1.1.11 && \
+    cd libtorrent-rasterbar-1.1.13 && \
     ./configure --prefix=/usr --disable-debug --enable-encryption --with-libgeoip=system CXXFLAGS=-std=c++11 && \
     make clean && \
     make -j$(nproc) && \
