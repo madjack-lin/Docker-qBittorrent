@@ -31,4 +31,5 @@ RUN buildDeps='build-essential pkg-config automake libtool git wget libboost-dev
 COPY qBittorrent.conf /root/.config/qBittorrent/
 VOLUME ["/downloads"]
 EXPOSE 56789 54321
+ENV LANG C.UTF-8
 CMD ["qbittorrent-nox"]
