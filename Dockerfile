@@ -12,7 +12,7 @@ RUN buildDeps='build-essential pkg-config automake libtool git wget libboost-dev
     make -j$(nproc) && \
     make install && \
     cd .. && \
-    # Download qBittorrent 4.1.4
+    # Download qBittorrent 4.1.5
     ldconfig && \
     wget https://github.com/qbittorrent/qBittorrent/archive/release-4.1.5.tar.gz && \
     tar -xzvf release-4.1.5.tar.gz && \
