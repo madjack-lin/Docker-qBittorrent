@@ -2,6 +2,8 @@
 For Synology Docker qBittorrent
 ## **Verison**
 # Latest:
+qBittorrent-4.1.8  (libtorrent-1.1.13)
+# v4.1.6:
 qBittorrent-4.1.6  (libtorrent-1.1.13)
 # v4.1.5:
 qBittorrent-4.1.5  (libtorrent-1.1.11)
