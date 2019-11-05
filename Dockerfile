@@ -12,11 +12,11 @@ RUN buildDeps='build-essential pkg-config automake libtool git wget libboost-dev
     make -j$(nproc) && \
     make install && \
     cd .. && \
-    # Download qBittorrent 4.1.9
+    # Download qBittorrent 4.1.9.1
     ldconfig && \
-    wget https://github.com/qbittorrent/qBittorrent/archive/release-4.1.9.tar.gz && \
-    tar -xzvf release-4.1.9.tar.gz && \
-    cd qBittorrent-release-4.1.9/ && \
+    wget https://github.com/qbittorrent/qBittorrent/archive/release-4.1.9.1.tar.gz && \
+    tar -xzvf release-4.1.9.1.tar.gz && \
+    cd qBittorrent-release-4.1.9.1/ && \
     ./configure --prefix=/usr --disable-gui && \
     make -j$(nproc) && \
     make install && \
@@ -26,7 +26,7 @@ RUN buildDeps='build-essential pkg-config automake libtool git wget libboost-dev
     rm -rf /var/lib/apt/lists/* && \
     rm -rf *.gz && \
     rm -rf /libtorrent-rasterbar-1.1.13 && \
-    rm -rf /qBittorrent-release-4.1.9
+    rm -rf /qBittorrent-release-4.1.9.1
     # Add Config File
 COPY qBittorrent.conf /root/.config/qBittorrent/
 VOLUME ["/downloads"]
