@@ -3,18 +3,6 @@ For Synology Docker qBittorrent
 ## **Verison**
 # v4.1.9:
 qBittorrent-4.1.9  (libtorrent-1.1.13)
-# v4.1.8:
-qBittorrent-4.1.8  (libtorrent-1.1.13)
-# v4.1.6:
-qBittorrent-4.1.6  (libtorrent-1.1.13)
-# v4.1.5:
-qBittorrent-4.1.5  (libtorrent-1.1.11)
-# v4.1.0:
-qBittorrent-4.1.0  (libtorrent-1.1.7)
-# v4.0.4:
-qBittorrent-4.0.4  (libtorrent-1.0.11)
-# v3.3.11:
-qBittorrent-3.3.11 (libtorrent-1.0.11)
 
 ## ![#f03c15](https://fi.madjack.info/red.png) **for Linux：**  
 `docker run -itd \`  
