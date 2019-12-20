@@ -15,7 +15,7 @@ RUN buildDeps='build-essential pkg-config automake libtool git wget libboost-dev
     # Download qBittorrent 4.2.1
     ldconfig && \
     wget https://github.com/qbittorrent/qBittorrent/archive/release-4.2.1.tar.gz && \
-    tar -xzvf releasefix-4.2.1.tar.gz && \
+    tar -xzvf release-4.2.1.tar.gz && \
     cd qBittorrent-release-4.2.1/ && \
     ./configure --prefix=/usr --disable-gui && \
     make -j$(nproc) && \
