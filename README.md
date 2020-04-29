@@ -2,6 +2,8 @@
 For Synology Docker qBittorrent
 ## **Verison**
 # Latest: (Supoort IPV6 Tracker)
+qBittorrent-4.2.5  (libtorrent-1.2.6)
+# v4.2.3:
 qBittorrent-4.2.3  (libtorrent-1.2.5)
 # v4.2.1:
 qBittorrent-4.2.1  (libtorrent-1.2.2)
