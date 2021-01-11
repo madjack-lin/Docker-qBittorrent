@@ -7,7 +7,7 @@ RUN buildDeps='build-essential pkg-config automake libtool git wget libboost-dev
     wget https://github.com/arvidn/libtorrent/releases/download/v1.2.12/libtorrent-rasterbar-1.2.12.tar.gz && \
     tar xzvf libtorrent-rasterbar-1.2.12.tar.gz && \
     cd libtorrent-rasterbar-1.2.12 && \
-    ./configure --prefix=/usr --disable-debug --enable-encryption --with-libgeoip=system && \
+    ./configure --prefix=/usr --disable-debug --enable-encryption --with-libgeoip=system CXXFLAGS=-std=c++14 && \
     make clean && \
     make -j$(nproc) && \
     make install && \
@@ -17,7 +17,7 @@ RUN buildDeps='build-essential pkg-config automake libtool git wget libboost-dev
     wget https://github.com/qbittorrent/qBittorrent/archive/release-4.3.2.tar.gz && \
     tar -xzvf release-4.3.2.tar.gz && \
     cd qBittorrent-release-4.3.2/ && \
-    ./configure --prefix=/usr --disable-gui && \
+    ./configure --prefix=/usr --disable-gui --disable-debug && \
     make -j$(nproc) && \
     make install && \
     cd .. && \
