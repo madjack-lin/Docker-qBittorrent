@@ -3,7 +3,7 @@ From ubuntu:18.04
 RUN buildDeps='build-essential pkg-config automake libtool git wget libboost-dev libboost-system-dev libboost-chrono-dev libboost-random-dev libssl-dev libgeoip-dev qtbase5-dev qttools5-dev-tools libqt5svg5-dev python' && \
     apt-get update && \
     apt-get install geoip-database zlib1g zlib1g-dev $buildDeps -y && \
-    # Build libtorrent 1.2.6
+    # Build libtorrent 1.2.12
     wget https://github.com/arvidn/libtorrent/releases/download/libtorrent-1_2_6/libtorrent-rasterbar-1.2.6.tar.gz && \
     tar xzvf libtorrent-rasterbar-1.2.6.tar.gz && \
     cd libtorrent-rasterbar-1.2.6 && \
